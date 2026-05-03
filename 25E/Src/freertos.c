@@ -12,20 +12,24 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "ins_task.h"
+#include "gimbal_task.h"
 
 /* ======================== 任务句柄 ======================== */
 
 static TaskHandle_t ins_task_handle   = NULL;
 static TaskHandle_t bt_rx_task_handle = NULL;
+static TaskHandle_t gimbal_task_handle = NULL;
 
 /* ======================== 任务栈大小 ======================== */
 
 #define INS_TASK_STACK_SIZE     512U    /* 2KB (含 Mahony 浮点运算) */
 #define BT_RX_TASK_STACK_SIZE   256U    /* 1KB */
+#define GIMBAL_TASK_STACK_SIZE  256U    /* 1KB 控制环 */
 
 /* ======================== 任务优先级 ======================== */
 
-#define INS_TASK_PRIORITY       5U      /* 高: IMU 硬实时 */
+#define INS_TASK_PRIORITY       5U      /* 最高: IMU 硬实时 */
+#define GIMBAL_TASK_PRIORITY    4U      /* 次高: 云台控制 1000Hz */
 #define BT_RX_TASK_PRIORITY     3U      /* 中: 蓝牙非实时 */
 
 /* ======================== 创建任务 ======================== */
@@ -45,6 +49,13 @@ void FreeRTOS_Init(void)
                 NULL,
                 BT_RX_TASK_PRIORITY,
                 &bt_rx_task_handle);
+
+    xTaskCreate(Gimbal_Task,
+                "GIMBAL",
+                GIMBAL_TASK_STACK_SIZE,
+                NULL,
+                GIMBAL_TASK_PRIORITY,
+                &gimbal_task_handle);
 }
 
 /* ======================== 钩子函数 ======================== */

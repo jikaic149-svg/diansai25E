@@ -11,3 +11,4 @@ spi_bmi088\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wr
 spi_bmi088\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 spi_bmi088\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 spi_bmi088\freertos.o: ../Application/ins/ins_task.h
+spi_bmi088\freertos.o: ../Application/gimbal/gimbal_task.h

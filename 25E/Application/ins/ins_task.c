@@ -22,6 +22,8 @@
 
 /* Algorithm 层 */
 #include "attitude_algorithm.h"
+#include "bsp_can.h"
+#include "config.h"
 
 /* BSP 层 (仅用于 Init 时注入函数指针) */
 #include "bsp_spi.h"
@@ -34,6 +36,15 @@
 
 #include <stdio.h>
 #include <string.h>
+
+/* ======================== 跨任务暴露的全局变量 ======================== */
+float global_gimbal_yaw = 0.0f;
+float global_gimbal_pitch = 0.0f;
+float global_imu_yaw_speed = 0.0f;
+float global_imu_pitch_speed = 0.0f;
+
+volatile uint8_t emergency_stop = 0; // 全局急停标志
+uint8_t is_zeroed = 0;               // 全局 IMU 校准完成标志
 
 /* ======================== SPI DMA 缓冲区 (参考 QGimbal) ======================== */
 
@@ -77,8 +88,8 @@ static float imu_gyro[3]  = {0};
 static float imu_accel[3] = {0};
 static float imu_temp     = 0;
 
-/* Yaw 运行时漂移补偿 (参考 QGimbal) */
-static float yaw_runtime_bias = 0.0f;
+/* Yaw 运行时漂移补偿 (参考 QGimbal) - 目前已使用静态补偿 */
+// static float yaw_runtime_bias = 0.0f;
 
 /* ======================== 前向声明 ======================== */
 
@@ -174,7 +185,6 @@ void INS_Task(void *argument)
     imu_start_dma_flag = 1;
 
     uint32_t init_counter = 0; // 替换 TickType_t，使用明确的循环计数
-    uint8_t is_zeroed = 0;
     float yaw_offset = 0.0f, pitch_offset = 0.0f, roll_offset = 0.0f;
     uint32_t bt_send_divider = 0;
 
@@ -276,9 +286,53 @@ void INS_Task(void *argument)
             if (!is_zeroed) {
                 sprintf(txt_buf, "Wait... Calibrating...\r\n");
             } else {
-                sprintf(txt_buf, "Yaw:%.2f Pitch:%.2f Roll:%.2f\r\n", out_yaw, out_pitch, out_roll);
+                // 将原始 0~2PI 弧度转化为角度制
+                float enc_pitch_deg = pitch_motor.angle * 180.0f / 3.1415926535f;
+                
+                // 云台最终 Pitch 和 Yaw (解耦后的单纯计算)
+                float gimbal_pitch = out_pitch + (enc_pitch_deg - MOTOR_PITCH_MECH_ZERO);
+                float gimbal_yaw   = out_yaw;
+                
+                // 更新全局变量给控制任务使用
+                global_gimbal_pitch = gimbal_pitch;
+                global_gimbal_yaw   = gimbal_yaw;
+                // 更新角速度给未来可能的 D 环使用 (已转换为度/秒)
+                global_imu_yaw_speed   = gz_deg; 
+                global_imu_pitch_speed = gy_deg;
+
+                sprintf(txt_buf, "Yaw:%.2f P:%.2f YawCur:%.2f PCur:%.2f\r\n", 
+                        gimbal_yaw, gimbal_pitch, 
+                        yaw_motor.current, pitch_motor.current);
             }
             BSP_UART1_SendDMA((uint8_t *)txt_buf, strlen(txt_buf));
+        }
+
+        /* ======================== 急停与指示灯逻辑 ======================== */
+        /* 检测 PA0 (用户自定义按键), 低电平触发 */
+        if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_RESET) {
+            emergency_stop = 1;
+        }
+
+        if (emergency_stop) {
+            /* 急停状态: 亮红灯(PH12=1)，灭绿灯(PH11=0) */
+            HAL_GPIO_WritePin(GPIOH, GPIO_PIN_12, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(GPIOH, GPIO_PIN_11, GPIO_PIN_RESET);
+            // （控制电机的操作已转移至 Gimbal_Task）
+        } else {
+            /* 正常状态: 亮绿灯(PH11=1)，灭红灯(PH12=0) */
+            HAL_GPIO_WritePin(GPIOH, GPIO_PIN_11, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(GPIOH, GPIO_PIN_12, GPIO_PIN_RESET);
+            // （控制电机的操作已转移至 Gimbal_Task）
+        }
+
+        /* 极端保护：如果由于瞬间并发数据塞爆了 RX_FIFO 导致 CAN 硬件报出 Overrun 错误锁死，
+           我们必须强行清除错误并重新打开中断，否则后续永远进不了接收回调！ */
+        extern CAN_HandleTypeDef hcan1;
+        if (hcan1.ErrorCode != HAL_CAN_ERROR_NONE) {
+            hcan1.ErrorCode = HAL_CAN_ERROR_NONE;
+            __HAL_CAN_CLEAR_FLAG(&hcan1, CAN_FLAG_FOV0);
+            __HAL_CAN_CLEAR_FLAG(&hcan1, CAN_FLAG_FOV1);
+            HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
         }
     }
 }

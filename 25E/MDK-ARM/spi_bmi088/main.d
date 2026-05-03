@@ -23,6 +23,7 @@ spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
 spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
 spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
 spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
+spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
 spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 spi_bmi088\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
@@ -36,6 +37,9 @@ spi_bmi088\main.o: ../Inc/dma.h
 spi_bmi088\main.o: ../Inc/spi.h
 spi_bmi088\main.o: ../Inc/tim.h
 spi_bmi088\main.o: ../Inc/gpio.h
+spi_bmi088\main.o: ../Inc/can.h
+spi_bmi088\main.o: ../BSP/bsp_can.h
+spi_bmi088\main.o: ../Inc/config.h
 spi_bmi088\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 spi_bmi088\main.o: ../Inc/FreeRTOSConfig.h
 spi_bmi088\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h

@@ -23,6 +23,7 @@ spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpi
 spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
 spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
 spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
+spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
 spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 spi_bmi088\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
@@ -36,3 +37,4 @@ spi_bmi088\stm32f4xx_it.o: ../Inc/stm32f4xx_it.h
 spi_bmi088\stm32f4xx_it.o: ../BSP/bsp_uart.h
 spi_bmi088\stm32f4xx_it.o: E:\Keil5\ARM\ARMCC\Bin\..\include\stdbool.h
 spi_bmi088\stm32f4xx_it.o: ../BSP/bsp_spi.h
+spi_bmi088\stm32f4xx_it.o: ../Inc/can.h

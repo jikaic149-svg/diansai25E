@@ -24,6 +24,8 @@
 #include "spi.h"
 #include "tim.h"
 #include "gpio.h"
+#include "can.h"
+#include "bsp_can.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -99,9 +101,16 @@ int main(void)
   MX_DMA_Init();
   MX_SPI1_Init();
   MX_TIM10_Init();
+  MX_CAN1_Init();
   /* USER CODE BEGIN 2 */
 
-  /* ===== 创建 FreeRTOS 任务 (必须在耗时的 INS_Init 之前，否则 SysTick 提前触发会导致 HardFault) ===== */
+  /* ===== 创建 FreeRTOS 任务 (必须在耗时的 INS_Init 之前) ===== */
+  CAN_Filter_Init(); // 启动 CAN 滤波器和中断
+
+  /* 唤醒电机 (发送使能指令) */
+  Motor_Enable(0x00);
+  Motor_Enable(0x01);
+
   FreeRTOS_Init();
 
   /* ===== INS 初始化 (含 5s 零飘校准, 调度器启动前) ===== */

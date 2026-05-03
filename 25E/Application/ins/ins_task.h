@@ -28,13 +28,16 @@ void INS_Init(void);
  * @param  argument FreeRTOS 传入参数 (未使用)
  * @note   读 IMU → Mahony 解算 → 定期蓝牙发送
  */
-void INS_Task(void *argument);
+extern void INS_Task(void *argument);
+extern void BT_RxTask(void *argument);
+extern void Gimbal_Task(void *argument);
 
-/**
- * @brief  蓝牙接收处理 FreeRTOS 任务函数
- * @param  argument FreeRTOS 传入参数 (未使用)
- */
-void BT_RxTask(void *argument);
+// 跨任务暴露的云台全局姿态与急停标志
+extern float global_gimbal_yaw;
+extern float global_gimbal_pitch;
+extern float global_imu_yaw_speed;
+extern float global_imu_pitch_speed;
+extern volatile uint8_t emergency_stop;
 
 /* ======================== 数据获取 ======================== */
 

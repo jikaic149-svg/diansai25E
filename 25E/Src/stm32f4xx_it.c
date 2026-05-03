@@ -17,6 +17,7 @@
 /* USER CODE BEGIN Includes */
 #include "bsp_uart.h"
 #include "bsp_spi.h"
+#include "can.h"
 /* USER CODE END Includes */
 
 /******************************************************************************/
@@ -106,4 +107,11 @@ void DMA2_Stream7_IRQHandler(void)
 void DMA2_Stream5_IRQHandler(void)
 {
     BSP_UART1_DMA_RX_IRQHandler();
+}
+
+/* ===== CAN1 RX0 中断 ===== */
+
+void CAN1_RX0_IRQHandler(void)
+{
+    HAL_CAN_IRQHandler(&hcan1);
 }
