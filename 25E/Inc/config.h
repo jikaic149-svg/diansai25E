@@ -63,14 +63,25 @@
 // 针对云台惯量调整：加大 YAW 力度，减小 PITCH 力度
 // 注意：一旦方向正确，系统仍然会画大圆发散的原因是缺少阻尼（D环）！
 // 现在重新引入并增强 D 环，将其稳死。
-#define GIMBAL_PID_PITCH_KP 0.02f
-#define GIMBAL_PID_PITCH_KD 0.0005f
-#define GIMBAL_PID_YAW_KP   0.04f
-#define GIMBAL_PID_YAW_KD   0.0005f
+#define GIMBAL_PID_PITCH_KP 0.025f
+#define GIMBAL_PID_PITCH_KI 0.0001f
+#define GIMBAL_PID_PITCH_KD 0.0020f
+#define GIMBAL_PID_YAW_KP   0.050f
+#define GIMBAL_PID_YAW_KI   0.0002f
+#define GIMBAL_PID_YAW_KD   0.0010f
 
 // 控制死区 (度)，在此误差范围内视为已到达目标，不进行 P 环修正，消除微抖动
 #define GIMBAL_PITCH_DEADBAND 0.5f
-#define GIMBAL_YAW_DEADBAND   0.5f
+#define GIMBAL_YAW_DEADBAND   0.2f
+
+// === 核心保护：误差限幅 (极度重要，防画龙防疯转) ===
+// 无论外面怎么扰动，系统认为的“最大误差”不超过此值。防止放手瞬间积累极大动能。
+#define GIMBAL_MAX_ERR_PITCH  20.0f
+#define GIMBAL_MAX_ERR_YAW    20.0f
+
+// 积分项限幅 (防积分饱和)
+#define GIMBAL_MAX_I_PITCH    0.3f  // 积分最大只允许提供 0.3A 电流，只用于消除微小稳态误差
+#define GIMBAL_MAX_I_YAW      0.3f
 
 // 安全限幅保护 (最大输出指令电流 A，用手能轻松捏住，防烧毁防击穿)
 #define GIMBAL_MAX_OUTPUT_CURRENT 1.0f

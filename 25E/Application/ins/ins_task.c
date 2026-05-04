@@ -14,6 +14,7 @@
 
 #include "ins_task.h"
 #include "main.h"
+#include <math.h>
 
 /* Device 层 */
 #include "bmi088.h"
@@ -272,7 +273,8 @@ void INS_Task(void *argument)
             }
         }
         
-        float out_yaw = total_Yaw_a - yaw_offset;
+        float out_yaw = fmodf(total_Yaw_a - yaw_offset, 360.0f);
+        if (out_yaw < 0.0f) out_yaw += 360.0f;  // 确保始终在 [0, 360)
         float out_pitch = total_Pitch_a - pitch_offset;
         float out_roll = total_Roll_a - roll_offset;
 
@@ -286,10 +288,10 @@ void INS_Task(void *argument)
             if (!is_zeroed) {
                 sprintf(txt_buf, "Wait... Calibrating...\r\n");
             } else {
-                // 将原始 0~2PI 弧度转化为角度制
-                float enc_pitch_deg = pitch_motor.angle * 180.0f / 3.1415926535f;
+                // 编码器角度 (CAN层已转为角度制 0~360°)
+                float enc_pitch_deg = pitch_motor.angle;
                 
-                // 云台最终 Pitch 和 Yaw (解耦后的单纯计算)
+                // 云台最终 Pitch 和 Yaw (IMU + 编码器融合)
                 float gimbal_pitch = out_pitch + (enc_pitch_deg - MOTOR_PITCH_MECH_ZERO);
                 float gimbal_yaw   = out_yaw;
                 
