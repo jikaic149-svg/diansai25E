@@ -1,0 +1,327 @@
+[
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/attitude_algorithm.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/crc16.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/crc8.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/inertial_nav.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/kalman_filter.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/math_utils.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/pid_controller.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/quaternion_ekf.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/algorithm/user_lib.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/broker/broker.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/framework/daemon.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/framework/message_center.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/framework/simple_task_scheduler.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Application/vofa/vofa.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/BSP/bsp_encoder.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/BSP/bsp_pwm.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/BSP/bsp_tb6612.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/BSP/bsp_timer.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/BSP/bsp_uart.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Debug/ti_msp_dl_config.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/alarm/buzzer_alarm.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/bluetooth/HC05.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/board_comm_protocol/board_comm_protocol.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/button/button.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/buzzer/buzzer.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/can_comm/can_comm.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/display_menu/display_menu.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/dji_motor/dji_motor.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/dm_motor/dmmotor.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/dr_motor/dr_motor.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/ht_motor/HT04.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/icm42688/icm42688.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/jy61p/jy61p.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/lk_motor/LK9025.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/motor/motor.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/motor_encoder/motor_encoder.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/oled/oled.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/opencv/opencv.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/referee/crc_ref.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/referee/referee_UI.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/referee/rm_referee.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/remote/remote_control.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/rotary_encoder/rotary_encoder.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/seasky_protocol/seasky_protocol.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/servo_motor/servo_motor.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/step_motor/X_V2.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/step_motor/step_motor.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/super_cap/super_cap.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/tfminiplus/tfminiplus.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/track/track.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Device/vl53l1x/vl53l1x_port.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_AXIS.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_BRAKE.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_CURVE.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_DONE.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_IDLE.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_STRAIGHT.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_TRACKING.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/MODE_TURNING.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Mode/mode_manager.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/Task/MODE_TASK_SQUARE.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/extern.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/isr.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/main.c"
+   },
+   {
+      "directory" : "C:/Users/Administrator/workspace_ccstheia/25E/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -D__USE_SYSCONFIG__ -I\"C:/Users/Administrator/workspace_ccstheia/25E\" -I\"C:/Users/Administrator/workspace_ccstheia/25E/Debug\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source/third_party/CMSIS/Core/Include\" -I\"E:/ti/mspm0_sdk_2_10_00_04/source\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c++/v1\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/lib/clang/18/include\" -isystem\"E:/ti/ccs/tools/compiler/ti-cgt-armllvm_4.0.0.LTS/include/c\"",
+      "file"      : "C:/Users/Administrator/workspace_ccstheia/25E/schedule.c"
+   }
+]

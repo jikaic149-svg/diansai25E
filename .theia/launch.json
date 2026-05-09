@@ -1,0 +1,104 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "test",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/main.c"
+            }
+        },
+        {
+            "name": "test (1)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/Task"
+            }
+        },
+        {
+            "name": "test (2)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/empty.syscfg"
+            }
+        },
+        {
+            "name": "test (3)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/Device/motor/motor.c"
+            }
+        },
+        {
+            "name": "test (4)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test"
+            }
+        },
+        {
+            "name": "test (5)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/Application/algorithm/inertial_nav.h"
+            }
+        },
+        {
+            "name": "test (6)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/Application"
+            }
+        },
+        {
+            "name": "test (7)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/Mode"
+            }
+        },
+        {
+            "name": "test (8)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "test",
+                "resourceId": "/test/Mode/MODE_CURVE.c"
+            }
+        },
+        {
+            "name": "25E",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "25E",
+                "resourceId": "/25E/Debug"
+            }
+        },
+        {
+            "name": "25E (1)",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "25E",
+                "resourceId": "/25E/main.c"
+            }
+        }
+    ]
+}
