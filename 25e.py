@@ -21,14 +21,18 @@ def log_e(m,s): _log(3,m,s)
 # 参数
 # =============================================================================
 CAM_W, CAM_H = 320, 240
-LOCK_MAX_JUMP = 30  
+LOCK_MAX_JUMP = 80
 ROI_SIZE = 30 # 缩小放大镜尺寸，降低边缘与反光干扰
+CORNER_DEADZONE_SQ = 16  # 角点死区半径²（4px），小于此距离时复用上帧角点
+SMOOTH_ALPHA = 0.25       # 中心点EMA平滑系数 (0=极平滑/高延迟, 1=无平滑/原始值)
 
 COLOR_TH = {
-    "tape_bin":   {"gray": [[0, 80]],    "note": "黑色胶布灰度阈值 (全图二值化用)"},
+    "tape_bin":   {"gray": [[0, 115]],   "note": "黑色胶布灰度阈值 (全图二值化用)"},
     "blob_white": {"gray": [[200, 255]], "note": "二值图白色区域 (找白框)"},
     "blob_black": {"gray": [[0, 50]],    "note": "二值图黑色区域 (找黑芯)"},
 }
+
+DEBUG_FAIL_REASON = "Init"
 
 # =============================================================================
 # 工具函数：计算对角线交点 (抵抗透视畸变)
@@ -61,7 +65,7 @@ def get_diagonal_intersection(tl, tr, br, bl):
 # =============================================================================
 # 动态透视角点检测：旋转不变曼哈顿法 (动态基底投影)
 # =============================================================================
-def get_robust_corners(blob):
+def get_robust_corners(blob, safe_bottom_y=None):
     """利用动态向量点乘，在任意旋转角度下精准提取物理尖角"""
     try:
         pts = blob.corners() 
@@ -73,6 +77,11 @@ def get_robust_corners(blob):
         
     if not pts or len(pts) < 4:
         return None
+
+    if safe_bottom_y is not None:
+        filt = [p for p in pts if p[1] < safe_bottom_y]
+        if len(filt) >= 4:
+            pts = filt
 
     theta = blob.rotation()
 
@@ -107,23 +116,27 @@ def get_robust_corners(blob):
 # 核心识别: 漏斗式筛选 + 局部极径最大化
 # =============================================================================
 def find_target(bin_img, hint_roi=None, last_corners=None):
+    global DEBUG_FAIL_REASON
+    DEBUG_FAIL_REASON = "未找到任何白框"
     search = {}
     if hint_roi:
         search['roi'] = hint_roi
         
     white_blobs = bin_img.find_blobs(COLOR_TH["blob_white"]["gray"], 
                                       area_threshold=100, pixels_threshold=20,
-                                      merge=True, x_stride=2, y_stride=2, **search)
+                                      merge=True, x_stride=1, y_stride=1, **search)
     if not white_blobs:
         return None
     
     valid_tapes = []
     for b in white_blobs:
         area = b.w() * b.h()
-        if area > 76000 or area < 200:
+        if area > 76000 or area < 400:
+            DEBUG_FAIL_REASON = f"白框面积越界({area})"
             continue
         ratio = b.w() / b.h()
-        if ratio < 0.4 or ratio > 2.5:
+        if ratio < 0.4 or ratio > 5.0:
+            DEBUG_FAIL_REASON = f"白框比例越界({ratio:.1f})"
             continue
             
         valid_tapes.append(b)
@@ -141,27 +154,53 @@ def find_target(bin_img, hint_roi=None, last_corners=None):
                                           pixels_threshold=5, merge=False, 
                                           x_stride=2, y_stride=2)
         if not black_blobs:
+            DEBUG_FAIL_REASON = "框内无黑芯"
             continue
             
         candidates = []
         for bb in black_blobs:
-            if bb.x() <= tape.x() or bb.y() <= tape.y(): continue
-            if (bb.x() + bb.w()) >= (tape.x() + tape.w()): continue
-            if (bb.y() + bb.h()) >= (tape.y() + tape.h()): continue
-            if (bb.w() * bb.h()) < (tape.w() * tape.h()) * 0.05: continue
+            # 【抗纯白背景干扰：严格黑芯自身过滤】
+            # 靶子核心一定是接近正方形的。如果背景全白，导致整个视野被判定为白框，
+            # 这里的黑芯比例限制可以瞬间屏蔽掉“宽广的地板”或“细长的支架”等环境阴影。
+            core_ratio = bb.w() / (bb.h() + 1e-5)
+            if core_ratio < 0.3 or core_ratio > 3.0:
+                DEBUG_FAIL_REASON = "黑芯几何比例畸形(疑为阴影/地板)"
+                continue
+                
+            if bb.w() * bb.h() > 45000:
+                DEBUG_FAIL_REASON = "黑芯面积过大(疑为环境阴影)"
+                continue
+
+            # 允许边缘溢出（兼容反光导致的胶带断裂），但限制重心必须在中央区域，拒绝四角背景
+            if not (tape.x() + tape.w() * 0.2 < bb.cx() < tape.x() + tape.w() * 0.8):
+                DEBUG_FAIL_REASON = "黑芯重心偏离X(疑为背景)"
+                continue
+            if bb.cy() < tape.y() + tape.h() * 0.15:
+                DEBUG_FAIL_REASON = "黑芯重心偏离Y(疑为背景)"
+                continue
+            if (bb.w() * bb.h()) < (tape.w() * tape.h()) * 0.15: 
+                DEBUG_FAIL_REASON = "黑芯相对面积太小(<15%)"
+                continue
             
             candidates.append(bb)
             
         if candidates:
             valid_cores = [bb for bb in candidates if bb.cy() < tape.y() + tape.h() * 0.75]
-            if not valid_cores: continue
+            if not valid_cores: 
+                DEBUG_FAIL_REASON = "黑芯位置全偏下(疑为干扰)"
+                continue
             if sum(b.pixels() for b in valid_cores) == 0: continue
             
+            # 几何硬截断：通过内芯高度推算真实外框的底边极限位置，切断三脚架粘连
+            core_min_y = min(b.y() for b in valid_cores)
+            core_max_y = max(b.y() + b.h() for b in valid_cores)
+            safe_bottom_y = core_max_y + max(0, core_min_y - tape.y()) * 2.5
+
             # ================================================================
-            # 局部放大镜钉死角点
+            # 局部放大镜钉死角点 (升级版：引入几何与物理防畸变约束)
             # ================================================================
             corners = None
-            if last_corners:
+            if last_corners and not any(p[1] > safe_bottom_y for p in last_corners):
                 corners = []
                 keys = [lambda p: p[0]+p[1], lambda p: p[0]-p[1], lambda p: p[0]+p[1], lambda p: p[0]-p[1]]
                 is_max = [False, True, True, False]
@@ -173,34 +212,73 @@ def find_target(bin_img, hint_roi=None, last_corners=None):
                     rw = min(CAM_W - rx, ROI_SIZE)
                     rh = min(CAM_H - ry, ROI_SIZE)
                     
-                    # 防崩保护：局部长宽越界(<=0)时，放弃局部追踪
                     if rw <= 0 or rh <= 0:
                         break
                         
                     roi_local = (rx, ry, rw, rh)
                     
-                    blobs = bin_img.find_blobs(COLOR_TH["blob_white"]["gray"], roi=roi_local, area_threshold=2, pixels_threshold=2, merge=True)
+                    # 【约束1：局部面积过滤】提升阈值，防止抓取极小噪点
+                    blobs = bin_img.find_blobs(COLOR_TH["blob_white"]["gray"], roi=roi_local, 
+                                               area_threshold=15, pixels_threshold=15, merge=True)
                     if not blobs: break
                     
                     b = max(blobs, key=lambda x: x.pixels())
-                    
                     pts = b.mini_corners() or b.corners()
                     if not pts: break
                     
                     best = max(pts, key=keys[i]) if is_max[i] else min(pts, key=keys[i])
                     corners.append((int(best[0]), int(best[1])))
                 
-                if corners is not None and len(corners) != 4:
+                # 【约束2：四边形几何拓扑审查】
+                if corners is not None and len(corners) == 4:
+                    tl, tr, br, bl = corners
+                    
+                    # 计算四条边的长度平方 (省去开平方根的性能消耗)
+                    dist_top_sq = (tl[0] - tr[0])**2 + (tl[1] - tr[1])**2
+                    dist_bot_sq = (bl[0] - br[0])**2 + (bl[1] - br[1])**2
+                    dist_lft_sq = (tl[0] - bl[0])**2 + (tl[1] - bl[1])**2
+                    dist_rgt_sq = (tr[0] - br[0])**2 + (tr[1] - br[1])**2
+                    
+                    # 审查A：防整体萎缩 (边长必须大于阈值)
+                    MIN_EDGE_SQ = 30 ** 2 
+                    if min(dist_top_sq, dist_bot_sq, dist_lft_sq, dist_rgt_sq) < MIN_EDGE_SQ:
+                        corners = None 
+                    else:
+                        # 审查B：防单边被严重拉长 (对边比例必须在合理透视范围内)
+                        ratio_tb = dist_top_sq / (dist_bot_sq + 1e-5)
+                        ratio_lr = dist_lft_sq / (dist_rgt_sq + 1e-5)
+                        
+                        if not (0.2 < ratio_tb < 5.0) or not (0.2 < ratio_lr < 5.0):
+                            DEBUG_FAIL_REASON = "局部角点四边形比例异常"
+                            corners = None 
+                else:
+                    DEBUG_FAIL_REASON = "局部未集齐4个角点或太小"
                     corners = None
-            
+            # ================================================================
+
             if not corners:
-                corners = get_robust_corners(tape)
-            
+                corners = get_robust_corners(tape, safe_bottom_y)
+
+            # 退化检测：4个角点必须两两不同，否则对角线交点无意义
+            if corners and len(set(corners)) < 4:
+                DEBUG_FAIL_REASON = "角点退化(含重复坐标)"
+                corners = get_robust_corners(tape, safe_bottom_y)
+                if corners and len(set(corners)) < 4:
+                    corners = None
+
             if not corners:
                 continue
-            
-            cx, cy = get_diagonal_intersection(corners[0], corners[1], corners[2], corners[3])
-            
+
+            # 角点死区：单帧位移 < CORNER_DEADZONE_SQ 时复用上帧角点，切断局部放大镜反馈震荡
+            if last_corners and len(last_corners) == 4:
+                corners = [
+                    old if (new[0]-old[0])**2 + (new[1]-old[1])**2 < CORNER_DEADZONE_SQ else new
+                    for new, old in zip(corners, last_corners)
+                ]
+
+            # 中心点：四角点对角线交点（抗透视畸变），跳变保护交由 LOCK_MAX_JUMP 处理
+            tl, tr, br, bl = corners
+            cx, cy = get_diagonal_intersection(tl, tr, br, bl)
             inner_area = sum(b.w() * b.h() for b in valid_cores)
             
             return {
@@ -281,14 +359,16 @@ try:
             except AttributeError:
                 img = img.to_grayscale()
 
+        # 直接拷贝原始灰度图用于屏幕显示，不转 RGB 以极致节省帧率
         display_img = img.copy()
 
         img.binary(COLOR_TH["tape_bin"]["gray"])
+        # 已去掉形态学处理，进一步节省帧率
         bin_img = img
 
         tgt = find_target(bin_img, last_roi, last_corners)
         
-        if tgt and tgt["inner_area"] < 100:
+        if tgt and tgt["inner_area"] < 300:
             tgt = None
 
         if tgt is None and last_roi is not None:
@@ -302,7 +382,7 @@ try:
                 last_roi = None
                 last_corners = None 
                 tgt = find_target(bin_img)
-                if tgt and tgt["inner_area"] < 100:
+                if tgt and tgt["inner_area"] < 300:
                     tgt = None
             else:
                 new_rx = max(0, cx - new_w // 2)
@@ -312,7 +392,7 @@ try:
                 
                 last_roi = (new_rx, new_ry, new_w, new_h)
                 tgt = find_target(bin_img, last_roi, last_corners)
-                if tgt and tgt["inner_area"] < 100:
+                if tgt and tgt["inner_area"] < 300:
                     tgt = None
 
         if uart_ports:
@@ -335,12 +415,17 @@ try:
             if sm_cx is not None and sm_cy is not None:
                 jump = math.sqrt((raw_cx - sm_cx)**2 + (raw_cy - sm_cy)**2)
                 if jump > LOCK_MAX_JUMP:
+                    DEBUG_FAIL_REASON = f"中心跳动过大({jump:.1f})"
                     tgt = None
                     
         if tgt:
-            sm_cx, sm_cy = raw_cx, raw_cy
+            if sm_cx is None:
+                sm_cx, sm_cy = float(raw_cx), float(raw_cy)
+            else:
+                sm_cx = sm_cx * (1 - SMOOTH_ALPHA) + raw_cx * SMOOTH_ALPHA
+                sm_cy = sm_cy * (1 - SMOOTH_ALPHA) + raw_cy * SMOOTH_ALPHA
             sm_area = tgt["inner_area"]
-            
+
             cx, cy = int(sm_cx), int(sm_cy)
             corners = tgt["corners"]
             last_corners = corners 
@@ -355,11 +440,17 @@ try:
                         min(oh + 2*ey, CAM_H - ry))
             
             for c in corners:
-                display_img.draw_circle(c[0], c[1], 5, color=image.COLOR_YELLOW, thickness=2)
-                display_img.draw_rect(max(0, c[0]-ROI_SIZE//2), max(0, c[1]-ROI_SIZE//2), ROI_SIZE, ROI_SIZE, color=image.COLOR_BLUE, thickness=1)
+                display_img.draw_circle(c[0], c[1], 5, color=image.COLOR_WHITE, thickness=2)
+                display_img.draw_rect(max(0, c[0]-ROI_SIZE//2), max(0, c[1]-ROI_SIZE//2), ROI_SIZE, ROI_SIZE, color=image.COLOR_WHITE, thickness=1)
                 
-            display_img.draw_cross(cx, cy, color=image.COLOR_GREEN, size=15, thickness=2)
-            display_img.draw_cross(screen_cx, screen_cy, color=image.COLOR_RED, size=10, thickness=2)
+            # 将四个角点首尾相连，绘制闭合的包围矩形
+            for i in range(4):
+                p1 = corners[i]
+                p2 = corners[(i + 1) % 4]
+                display_img.draw_line(p1[0], p1[1], p2[0], p2[1], color=image.COLOR_WHITE, thickness=2)
+                
+            display_img.draw_cross(cx, cy, color=image.COLOR_WHITE, size=15, thickness=1)
+            display_img.draw_cross(screen_cx, screen_cy, color=image.COLOR_BLACK, size=10, thickness=1)
 
             dx = cx - screen_cx
             dy = cy - screen_cy
@@ -380,7 +471,7 @@ try:
             tgt_area = tgt["inner_area"] 
             roi_miss_count = 0
             if frame_count % 3 == 0:
-                print(f"[T:{_ts():06d}] VIS {state} fps={fps:.0f} cx={cx} cy={cy} dx={dx:+d} dy={dy:+d} area={tgt_area} ctr=({screen_cx},{screen_cy})")
+                print(f"[T:{_ts():06d}] VIS {state} fps={fps:.0f} cx={cx} cy={cy} dx={dx:+d} dy={dy:+d} area={tgt_area} corners={tgt['corners']}")
         else:
             roi_miss_count += 1
             if roi_miss_count > 15:
@@ -389,8 +480,9 @@ try:
                 last_corners = None 
                 
             if frame_count % 15 == 0: 
-                print(f"[T:{_ts():06d}] VIS {state} fps={fps:.0f}")
+                print(f"[T:{_ts():06d}] VIS {state} fps={fps:.0f} reason={DEBUG_FAIL_REASON}")
             
+        # 恢复输出带有标记的原始灰度图 (img 已经被二值化破坏，必须用 display_img)
         disp.show(display_img)
         
         if frame_count % 150 == 0: 
