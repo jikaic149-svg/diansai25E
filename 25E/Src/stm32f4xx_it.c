@@ -16,6 +16,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "bsp_uart.h"
+#include "bsp_uart6.h"
 #include "bsp_spi.h"
 #include "can.h"
 /* USER CODE END Includes */
@@ -88,7 +89,7 @@ void DMA2_Stream3_IRQHandler(void)
     HAL_DMA_IRQHandler(&hdma_spi1_tx);
 }
 
-/* ===== USART1 IDLE + RX 中断 (蓝牙) ===== */
+/* ===== USART1 RXNE + IDLE 中断 (蓝牙) ===== */
 
 void USART1_IRQHandler(void)
 {
@@ -102,11 +103,18 @@ void DMA2_Stream7_IRQHandler(void)
     BSP_UART1_DMA_TX_IRQHandler();
 }
 
-/* ===== DMA2 Stream5 中断 (USART1 RX 完成/半完成) ===== */
+/* ===== USART6 RXNE + IDLE 中断 (视觉) ===== */
 
-void DMA2_Stream5_IRQHandler(void)
+void USART6_IRQHandler(void)
 {
-    BSP_UART1_DMA_RX_IRQHandler();
+    BSP_UART6_IRQHandler();
+}
+
+/* ===== DMA2 Stream6 中断 (USART6 TX 完成) ===== */
+
+void DMA2_Stream6_IRQHandler(void)
+{
+    BSP_UART6_DMA_TX_IRQHandler();
 }
 
 /* ===== CAN1 RX0 中断 ===== */

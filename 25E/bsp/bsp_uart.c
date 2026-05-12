@@ -1,11 +1,13 @@
 /**
  * @file    bsp_uart.c
- * @brief   BSP层 — USART1 底层操作 (STM32F407)
- * @note    DMA TX: DMA2_Stream7_Channel4
- *          DMA RX: DMA2_Stream5_Channel4
- *          IDLE 中断接收整帧
- *          PA9 = TX (AF7), PA10 = RX (AF7)
- *          波特率: 115200, 8N1
+ * @brief   BSP 层 — USART1 (蓝牙)
+ * @note    参照 RoboMaster C 板官方例程 8.USART_receive_and_send
+ *
+ *          引脚: PA9 = TX (AF7), PB7 = RX (AF7), 115200 8N1
+ *          (RX 用 PB7, 与官方例程一致; 之前选 PA10 是错的引脚)
+ *
+ *          RX 走 RXNE 中断, 每个字节进 ISR → 回调
+ *          TX 走 DMA2_Stream7_Channel4, 非阻塞
  */
 
 #include "bsp_uart.h"
@@ -15,34 +17,46 @@
 /* ======================== 硬件句柄 ======================== */
 static UART_HandleTypeDef huart1;
 static DMA_HandleTypeDef  hdma_usart1_tx;
-static DMA_HandleTypeDef  hdma_usart1_rx;
 
-/* ======================== 缓冲区 ======================== */
-static uint8_t uart1_rx_buf[BSP_UART1_RX_BUF_SIZE];
-static volatile uint8_t uart1_tx_busy = 0;
+/* ======================== 缓冲 / 状态 ======================== */
+#define UART1_TX_BUF_SIZE 128U
+static uint8_t           tx_buf[UART1_TX_BUF_SIZE];
+static volatile uint8_t  tx_busy = 0;
 
-/* ======================== 回调 ======================== */
-static BSP_UART1_RxCallback_t rx_callback = NULL;
+static BSP_UART1_RxByteCallback_t rx_cb   = NULL;
+static BSP_UART1_IdleCallback_t   idle_cb = NULL;
 
 /* ======================== 初始化 ======================== */
 
 void BSP_UART1_Init(void)
 {
-    /* ----- 1. 时钟使能 ----- */
+    /* ----- 1. 时钟 ----- */
     __HAL_RCC_USART1_CLK_ENABLE();
     __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_DMA2_CLK_ENABLE();
 
-    /* ----- 2. GPIO: PA9(TX), PA10(RX) ----- */
+    /* ----- 2. GPIO -----
+     *   PA9 = USART1_TX (AF7)
+     *   PB7 = USART1_RX (AF7) — 跟官方一致
+     */
     GPIO_InitTypeDef gpio = {0};
-    gpio.Pin       = GPIO_PIN_9 | GPIO_PIN_10; // PA9 TX, PA10 RX
+
+    gpio.Pin       = GPIO_PIN_9;
     gpio.Mode      = GPIO_MODE_AF_PP;
     gpio.Pull      = GPIO_PULLUP;
     gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
     gpio.Alternate = GPIO_AF7_USART1;
     HAL_GPIO_Init(GPIOA, &gpio);
 
-    /* ----- 3. USART1 配置 ----- */
+    gpio.Pin       = GPIO_PIN_7;
+    gpio.Mode      = GPIO_MODE_AF_PP;
+    gpio.Pull      = GPIO_PULLUP;
+    gpio.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
+    gpio.Alternate = GPIO_AF7_USART1;
+    HAL_GPIO_Init(GPIOB, &gpio);
+
+    /* ----- 3. USART1 (与官方一致) ----- */
     huart1.Instance          = USART1;
     huart1.Init.BaudRate     = 115200;
     huart1.Init.WordLength   = UART_WORDLENGTH_8B;
@@ -67,100 +81,78 @@ void BSP_UART1_Init(void)
     HAL_DMA_Init(&hdma_usart1_tx);
     __HAL_LINKDMA(&huart1, hdmatx, hdma_usart1_tx);
 
-    /* ----- 5. DMA RX: DMA2_Stream5_Channel4 ----- */
-    hdma_usart1_rx.Instance                 = DMA2_Stream5;
-    hdma_usart1_rx.Init.Channel             = DMA_CHANNEL_4;
-    hdma_usart1_rx.Init.Direction           = DMA_PERIPH_TO_MEMORY;
-    hdma_usart1_rx.Init.PeriphInc           = DMA_PINC_DISABLE;
-    hdma_usart1_rx.Init.MemInc              = DMA_MINC_ENABLE;
-    hdma_usart1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-    hdma_usart1_rx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
-    hdma_usart1_rx.Init.Mode                = DMA_CIRCULAR;
-    hdma_usart1_rx.Init.Priority            = DMA_PRIORITY_HIGH;
-    hdma_usart1_rx.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
-    HAL_DMA_Init(&hdma_usart1_rx);
-    __HAL_LINKDMA(&huart1, hdmarx, hdma_usart1_rx);
-
-    /* ----- 6. NVIC ----- */
-    HAL_NVIC_SetPriority(USART1_IRQn, 6, 0);
+    /* ----- 5. NVIC ----- */
+    HAL_NVIC_SetPriority(USART1_IRQn,       6, 0);
     HAL_NVIC_EnableIRQ(USART1_IRQn);
-
     HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 6, 0);
     HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
 
-    HAL_NVIC_SetPriority(DMA2_Stream5_IRQn, 6, 0);
-    HAL_NVIC_EnableIRQ(DMA2_Stream5_IRQn);
-
-    /* ----- 7. 启动 IDLE 中断 + DMA 接收 ----- */
+    /* ----- 6. 使能 RXNE + IDLE 中断 (官方做法) ----- */
+    __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
     __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
-    HAL_UART_Receive_DMA(&huart1, uart1_rx_buf, BSP_UART1_RX_BUF_SIZE);
 }
 
-/* ======================== 注册回调 ======================== */
+/* ======================== 注册 ======================== */
 
-void BSP_UART1_RegisterRxCallback(BSP_UART1_RxCallback_t callback)
+void BSP_UART1_RegisterRxCallback(BSP_UART1_RxByteCallback_t cb)   { rx_cb   = cb; }
+void BSP_UART1_RegisterIdleCallback(BSP_UART1_IdleCallback_t cb)   { idle_cb = cb; }
+
+/* ======================== TX ======================== */
+
+bool BSP_UART1_SendBytes(const uint8_t *data, uint16_t len)
 {
-    rx_callback = callback;
-}
+    if (tx_busy || len == 0 || len > UART1_TX_BUF_SIZE) return false;
 
-/* ======================== DMA 发送 ======================== */
-
-bool BSP_UART1_SendDMA(const uint8_t *data, uint16_t len)
-{
-    if (uart1_tx_busy || len == 0 || len > BSP_UART1_TX_BUF_SIZE)
+    memcpy(tx_buf, data, len);
+    tx_busy = 1;
+    if (HAL_UART_Transmit_DMA(&huart1, tx_buf, len) != HAL_OK) {
+        tx_busy = 0;
         return false;
-
-    uart1_tx_busy = 1;
-    HAL_UART_Transmit_DMA(&huart1, (uint8_t *)data, len);
+    }
     return true;
 }
 
-/* ======================== 中断处理 ======================== */
+/* ======================== 中断 (与官方风格一致) ======================== */
 
-/**
- * @brief  USART1 中断: 处理 IDLE 空闲中断
- */
 void BSP_UART1_IRQHandler(void)
 {
-    if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE))
+    uint32_t sr  = huart1.Instance->SR;
+    uint32_t cr1 = huart1.Instance->CR1;
+
+    /* ----- RXNE: 收到一字节 ----- */
+    if ((sr & USART_SR_RXNE) && (cr1 & USART_CR1_RXNEIE))
     {
-        /* 清除 IDLE 标志: 先读 SR 再读 DR */
-        __HAL_UART_CLEAR_IDLEFLAG(&huart1);
-
-        /* 停止 DMA 接收以获取已接收长度 */
-        HAL_UART_DMAStop(&huart1);
-
-        /* 计算本帧长度 */
-        uint16_t rx_len = BSP_UART1_RX_BUF_SIZE - __HAL_DMA_GET_COUNTER(huart1.hdmarx);
-
-        if (rx_len > 0 && rx_callback != NULL)
-        {
-            rx_callback(uart1_rx_buf, rx_len);
-        }
-
-        /* 重新启动 DMA 接收 */
-        memset(uart1_rx_buf, 0, BSP_UART1_RX_BUF_SIZE);
-        HAL_UART_Receive_DMA(&huart1, uart1_rx_buf, BSP_UART1_RX_BUF_SIZE);
+        uint8_t b = (uint8_t)(huart1.Instance->DR & 0xFF);
+        if (rx_cb) rx_cb(b);
+        return;
     }
 
-    /* 处理其他 UART 中断 (溢出等) */
-    HAL_UART_IRQHandler(&huart1);
+    /* ----- IDLE: 帧空闲 ----- */
+    if ((sr & USART_SR_IDLE) && (cr1 & USART_CR1_IDLEIE))
+    {
+        (void)huart1.Instance->DR;   /* 读 DR 清 IDLE 标志 (先读 SR 已完成) */
+        if (idle_cb) idle_cb();
+        return;
+    }
+
+    /* ----- TC: DMA TX 完成 ----- */
+    if ((sr & USART_SR_TC) && (cr1 & USART_CR1_TCIE))
+    {
+        __HAL_UART_CLEAR_FLAG(&huart1, UART_FLAG_TC);
+        __HAL_UART_DISABLE_IT(&huart1, UART_IT_TC);
+        huart1.gState = HAL_UART_STATE_READY;
+        tx_busy = 0;
+        return;
+    }
+
+    /* ----- ORE: 溢出 ----- */
+    if (sr & USART_SR_ORE)
+    {
+        (void)huart1.Instance->DR;
+    }
 }
 
-/**
- * @brief  DMA2 Stream7 中断 (USART1 TX 完成)
- */
 void BSP_UART1_DMA_TX_IRQHandler(void)
 {
     HAL_DMA_IRQHandler(&hdma_usart1_tx);
-    uart1_tx_busy = 0;
 }
-
-/**
- * @brief  DMA2 Stream5 中断 (USART1 RX 完成/半完成)
- */
-void BSP_UART1_DMA_RX_IRQHandler(void)
-{
-    HAL_DMA_IRQHandler(&hdma_usart1_rx);
-}
-

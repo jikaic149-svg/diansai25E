@@ -75,6 +75,11 @@ typedef enum
 
 typedef void (*BT_RxCmdCallback_t)(uint8_t cmd_id, const uint8_t *payload, uint8_t len);
 
+/* 文本行回调: 上层用来接收 "Yxx.xx\n" 这类 ASCII 命令 */
+typedef void (*BT_RxLineCallback_t)(const char *line, uint16_t len);
+
+#define BT_TEXT_LINE_BUF_SIZE  64U
+
 /* ======================== 实例结构体 ======================== */
 
 typedef struct
@@ -95,7 +100,12 @@ typedef struct
     uint8_t       rx_crc_idx;
 
     /* 接收回调 */
-    BT_RxCmdCallback_t rx_callback;
+    BT_RxCmdCallback_t  rx_callback;        /* CRC 协议命令 */
+    BT_RxLineCallback_t rx_line_callback;   /* 文本行命令 */
+
+    /* 文本行装配缓冲 */
+    uint8_t  line_buf[BT_TEXT_LINE_BUF_SIZE];
+    uint16_t line_idx;
 } Bluetooth_Instance_t;
 
 /* ======================== 接口函数 ======================== */
@@ -108,11 +118,20 @@ typedef struct
 void Bluetooth_Init(Bluetooth_Instance_t *inst, BT_DmaSend_t send_fn);
 
 /**
- * @brief  注册接收命令回调
- * @param  inst     实例指针
- * @param  callback 回调函数
+ * @brief  注册接收命令回调 (CRC 协议)
  */
 void Bluetooth_RegisterRxCallback(Bluetooth_Instance_t *inst, BT_RxCmdCallback_t callback);
+
+/**
+ * @brief  注册文本行回调 (\n 切包, 去掉 \r\n, NUL 收尾)
+ */
+void Bluetooth_RegisterLineCallback(Bluetooth_Instance_t *inst, BT_RxLineCallback_t callback);
+
+/**
+ * @brief  喂入单字节 (BSP 字节回调里调用)
+ *         内部同时跑 CRC 状态机 和 文本行装配, 谁先匹配谁触发
+ */
+void Bluetooth_FeedRxByte(Bluetooth_Instance_t *inst, uint8_t b);
 
 /**
  * @brief  发送姿态数据

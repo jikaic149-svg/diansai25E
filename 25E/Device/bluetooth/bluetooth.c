@@ -24,6 +24,40 @@ void Bluetooth_RegisterRxCallback(Bluetooth_Instance_t *inst, BT_RxCmdCallback_t
     inst->rx_callback = callback;
 }
 
+void Bluetooth_RegisterLineCallback(Bluetooth_Instance_t *inst, BT_RxLineCallback_t callback)
+{
+    inst->rx_line_callback = callback;
+}
+
+/* 文本行装配: 收到 \n 时去掉 \r 并补 \0, 回调上层 */
+static void feed_line_byte(Bluetooth_Instance_t *inst, uint8_t b)
+{
+    if (b == '\n')
+    {
+        uint16_t len = inst->line_idx;
+        while (len > 0 && inst->line_buf[len - 1] == '\r') len--;
+        inst->line_buf[len] = '\0';
+        if (inst->rx_line_callback)
+            inst->rx_line_callback((const char *)inst->line_buf, len);
+        inst->line_idx = 0;
+    }
+    else if (inst->line_idx < BT_TEXT_LINE_BUF_SIZE - 1)
+    {
+        inst->line_buf[inst->line_idx++] = b;
+    }
+    else
+    {
+        inst->line_idx = 0;  /* 溢出丢弃 */
+    }
+}
+
+void Bluetooth_FeedRxByte(Bluetooth_Instance_t *inst, uint8_t b)
+{
+    /* 同时跑两套解析: CRC 协议状态机 + 文本行装配 */
+    Bluetooth_FeedRxData(inst, &b, 1);
+    feed_line_byte(inst, b);
+}
+
 /* ======================== 通用发送 ======================== */
 
 bool Bluetooth_SendFrame(Bluetooth_Instance_t *inst, uint8_t cmd_id,
